@@ -23,7 +23,7 @@
             <label>
                 <input type="checkbox" name="remember"> Remember Me
             </label>
-            <a href="#" class="forgot-password">Forgot Password?</a>
+            <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
         </div>
         <div class="toggle-link">
             <a href="#" onclick="toggleForm()">Don't have an account? Register</a>
@@ -50,6 +50,23 @@
         
         <div class="toggle-link">
             <a href="#" onclick="toggleForm()">Already have an account? Login</a>
+        </div>
+    </form>
+
+    <!-- Password Reset Form (Initially Hidden) -->
+    <form id="reset-password-form" class="hidden" onsubmit="handleResetPassword(event)">
+        <h2>Reset Password</h2>
+        
+        <label for="reset-email">Email:</label>
+        <input type="email" id="reset-email" name="reset-email" required>
+
+        <label for="new-password">New Password:</label>
+        <input type="password" id="new-password" name="new-password" required>
+
+        <input type="submit" value="Reset Password">
+        
+        <div class="toggle-link">
+            <a href="#" onclick="toggleForm()">Back to Login</a>
         </div>
     </form>
 
@@ -105,6 +122,31 @@
             document.getElementById('login-form').classList.remove('hidden');
             document.getElementById('register-form').classList.add('hidden');
             document.getElementById('username').value = email; // Pre-fill email in login form
+        }
+
+        function showForgotPassword() {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('reset-password-form').classList.remove('hidden');
+        }
+
+        function handleResetPassword(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const resetEmail = document.getElementById('reset-email').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            // Check if the email exists
+            const user = users.find(user => user.email === resetEmail);
+            if (user) {
+                // Update the user's password
+                user.password = newPassword;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Password reset successful! You can now login with your new password.');
+                document.getElementById('reset-password-form').classList.add('hidden');
+                document.getElementById('login-form').classList.remove('hidden');
+            } else {
+                alert('Email not found. Please register if you don\'t have an account.');
+            }
         }
 
         function toggleForm() {
