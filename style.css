@@ -1,164 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Registration Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+body {
+    font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Make body a positioning context */
+}
 
-<body>
-    <!-- Login Form -->
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <h2>Login</h2>
-        <label for="username">Username (or Email):</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+.logo {
+    content: "";
+    background-image: url('https://alkifah.edu.sa/wp-content/uploads/2023/01/campus1.png');
+    background-size: contain; /* Ensure the image retains its aspect ratio */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    width: 200px; /* Set width for the logo */
+    height: 200px; /* Set height for the logo */
+    opacity: 0.5; /* Adjust transparency */
+    position: absolute; /* Position it absolutely within the body */
+    top: 20px; /* Adjust the vertical position */
+}
 
-        <input type="submit" value="Login"> 
-        
-        <div class="options">
-            <label>
-                <input type="checkbox" name="remember"> Remember Me
-            </label>
-            <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
-        </div>
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Don't have an account? Register</a>
-        </div>
-    </form>
+h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    z-index: 1; /* Ensure text is above the image */
+    position: relative; /* Position relative for z-index to work */
+}
 
-    <!-- Registration Form (Initially Hidden) -->
-    <form id="register-form" class="hidden" onsubmit="handleRegister(event)">
-        <h2>Register</h2>
-        
-        <label for="reg-username">Username:</label>
-        <input type="text" id="reg-username" name="reg-username" required>
+form {
+    background-color: rgba(54, 57, 63, 0.9); /* Slight transparency for better visibility */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    z-index: 1; /* Ensure form is above the image */
+    position: relative; /* Position relative for z-index to work */
+}
 
-        <label for="reg-email">Email:</label>
-        <input type="email" id="reg-email" name="reg-email" required>
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b9bbbe;
+}
 
-        <label for="reg-password">Password:</label>
-        <input type="password" id="reg-password" name="reg-password" required>
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #7289da;
+    border-radius: 4px;
+    background-color: #40444b;
+    color: #ffffff;
+}
 
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #7289da;
+    outline: none;
+}
 
-        <input type="submit" value="Register">
-        
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Already have an account? Login</a>
-        </div>
-    </form>
+input[type="submit"] {
+    background-color: #7289da;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 100%;
+}
 
-    <!-- Password Reset Form (Initially Hidden) -->
-    <form id="reset-password-form" class="hidden" onsubmit="handleResetPassword(event)">
-        <h2>Reset Password</h2>
-        
-        <label for="reset-email">Email:</label>
-        <input type="email" id="reset-email" name="reset-email" required>
+input[type="submit"]:hover {
+    background-color: #5b6eae;
+}
+.forgot-password {
+    color: #0366d6; /* GitHub blue */
+    font-size: 14px;
+}
 
-        <label for="new-password">New Password:</label>
-        <input type="password" id="new-password" name="new-password" required>
+.forgot-password:hover {
+    text-decoration: underline;
+}
 
-        <input type="submit" value="Reset Password">
-        
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Back to Login</a>
-        </div>
-    </form>
+.toggle-link a {
+    color: #0366d6; /* GitHub blue */
+    text-decoration: none;
+}
 
-    <script>
-        // Simulate registration storage using localStorage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+body {
+    font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Make body a positioning context */
+    background-color: #2c2f33; /* Discord-like dark background */
+}
 
-        function handleLogin(event) {
-            event.preventDefault(); // Prevent the default form submission
+.logo {
+    background-image: url('https://alkifah.edu.sa/wp-content/uploads/2023/01/campus1.png');
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 200px; 
+    height: 200px; 
+    opacity: 0.5;
+    position: absolute;
+    top: 20px;
+}
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    z-index: 1;
+    position: relative;
+}
 
-            // Check if the username exists and password matches
-            const user = users.find(user => user.email === username && user.password === password);
+form {
+    background-color: rgba(54, 57, 63, 0.9);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    z-index: 1;
+    position: relative;
+}
 
-            if (user) {
-                // Redirect to the specified URL if login is successful
-                window.location.href = "https://drive.google.com/drive/u/0/folders/1rXPZQB0xNae6HREAo2qhTj0PpnZ50LiF"; 
-            } else {
-                alert('Invalid login. Please register if you don\'t have an account.');
-            }
-        }
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b9bbbe;
+}
 
-        function handleRegister(event) {
-            event.preventDefault(); // Prevent the default form submission
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #7289da;
+    border-radius: 4px;
+    background-color: #40444b;
+    color: #ffffff;
+}
 
-            const username = document.getElementById('reg-username').value;
-            const email = document.getElementById('reg-email').value;
-            const password = document.getElementById('reg-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #7289da;
+    outline: none;
+}
 
-            // Check if passwords match
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
+input[type="submit"] {
+    background-color: #7289da;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 100%;
+}
 
-            // Check if the email is already registered
-            const userExists = users.some(user => user.email === email);
-            if (userExists) {
-                alert('Email is already registered. Please login.');
-                return;
-            }
+input[type="submit"]:hover {
+    background-color: #5b6eae;
+}
 
-            // Store user data
-            users.push({ username, email, password });
-            localStorage.setItem('users', JSON.stringify(users));
+.options {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-            alert('Registration successful!');
+.forgot-password {
+    color: #0366d6; /* GitHub blue */
+    font-size: 14px;
+}
 
-            // Switch back to login form and pre-fill email
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('register-form').classList.add('hidden');
-            document.getElementById('username').value = email; // Pre-fill email in login form
-        }
+.forgot-password:hover {
+    text-decoration: underline;
+}
 
-        function showForgotPassword() {
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('reset-password-form').classList.remove('hidden');
-        }
+.hidden {
+    display: none;
+}
 
-        function handleResetPassword(event) {
-            event.preventDefault(); // Prevent the default form submission
+.toggle-link {
+    margin-top: 10px;
+    text-align: center;
+}
 
-            const resetEmail = document.getElementById('reset-email').value;
-            const newPassword = document.getElementById('new-password').value;
+.toggle-link a {
+    color: #0366d6; /* GitHub blue */
+    text-decoration: none;
+}
 
-            // Check if the email exists
-            const user = users.find(user => user.email === resetEmail);
-            if (user) {
-                // Update the user's password
-                user.password = newPassword;
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('Password reset successful! You can now login with your new password.');
-                document.getElementById('reset-password-form').classList.add('hidden');
-                document.getElementById('login-form').classList.remove('hidden');
-            } else {
-                alert('Email not found. Please register if you don\'t have an account.');
-            }
-        }
-
-        function toggleForm() {
-            document.getElementById('login-form').classList.toggle('hidden');
-            document.getElementById('register-form').classList.toggle('hidden');
-        }
-    </script>
-
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-</body>
-</html>
+.toggle-link a:hover {
+    text-decoration: underline;
+}
