@@ -78,3 +78,121 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #5b6eae;
 }
+body {
+    font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Make body a positioning context */
+    background-color: #2c2f33; /* Discord-like dark background */
+}
+
+.logo {
+    content: "";
+    background-image: url('https://alkifah.edu.sa/wp-content/uploads/2023/01/campus1.png');
+    background-size: contain; /* Ensure the image retains its aspect ratio */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    width: 200px; /* Set width for the logo */
+    height: 200px; /* Set height for the logo */
+    opacity: 0.5; /* Adjust transparency */
+    position: absolute; /* Position it absolutely within the body */
+    top: 20px; /* Adjust the vertical position */
+}
+
+h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    z-index: 1; /* Ensure text is above the image */
+    position: relative; /* Position relative for z-index to work */
+}
+
+form {
+    background-color: rgba(54, 57, 63, 0.9); /* Slight transparency for better visibility */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    z-index: 1; /* Ensure form is above the image */
+    position: relative; /* Position relative for z-index to work */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b9bbbe;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #7289da;
+    border-radius: 4px;
+    background-color: #40444b;
+    color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #7289da;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: #7289da;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #5b6eae;
+}
+
+.options {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-password {
+    color: #7289da;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle-link {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.toggle-link a {
+    color: #7289da;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
