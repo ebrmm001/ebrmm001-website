@@ -54,20 +54,52 @@
     </form>
 
     <script>
+        // Simulate registration storage using localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
         function handleLogin(event) {
             event.preventDefault(); // Prevent the default form submission
 
             const username = document.getElementById('username').value;
-            if (username) {
-                window.location.href = "https://drive.google.com/drive/u/0/folders/1rXPZQB0xNae6HREAo2qhTj0PpnZ50LiF"; // Redirect to the specified URL
+            const password = document.getElementById('password').value;
+
+            // Check if the username exists and password matches
+            const user = users.find(user => user.email === username && user.password === password);
+
+            if (user) {
+                // Redirect to the specified URL if login is successful
+                window.location.href = "https://drive.google.com/drive/u/0/folders/1rXPZQB0xNae6HREAo2qhTj0PpnZ50LiF"; 
+            } else {
+                alert('Invalid login. Please register if you don\'t have an account.');
             }
         }
 
         function handleRegister(event) {
             event.preventDefault(); // Prevent the default form submission
 
-            const email = document.getElementById('reg-email').value; // Get the registered email
-            alert('Registration successful!'); // Placeholder for registration success message
+            const username = document.getElementById('reg-username').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Check if the email is already registered
+            const userExists = users.some(user => user.email === email);
+            if (userExists) {
+                alert('Email is already registered. Please login.');
+                return;
+            }
+
+            // Store user data
+            users.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('Registration successful!');
 
             // Switch back to login form and pre-fill email
             document.getElementById('login-form').classList.remove('hidden');
