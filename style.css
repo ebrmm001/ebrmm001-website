@@ -78,6 +78,23 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #5b6eae;
 }
+.forgot-password {
+    color: #0366d6; /* GitHub blue */
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.toggle-link a {
+    color: #0366d6; /* GitHub blue */
+    text-decoration: none;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
 body {
     font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
     color: #ffffff;
@@ -169,7 +186,7 @@ input[type="submit"]:hover {
 }
 
 .forgot-password {
-    color: #ffcc00; /* Change Forgot Password link color */
+    color: #0366d6; /* GitHub blue */
     font-size: 14px;
 }
 
@@ -187,9 +204,8 @@ input[type="submit"]:hover {
 }
 
 .toggle-link a {
-    color: #ff6600; /* Change Register link color */
+    color: #0366d6; /* GitHub blue */
     text-decoration: none;
-    font-size: 14px;
 }
 
 .toggle-link a:hover {
