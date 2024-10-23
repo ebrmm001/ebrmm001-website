@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login & Registration Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
-
-
-
-    <div class="logo"></div>
- 
-    <form onsubmit="handleLogin(event)">
+    <!-- Login Form -->
+    <form id="login-form" onsubmit="handleLogin(event)">
         <h2>Login</h2>
-        <label for="username">Username:</label>
+        <label for="username">Username (or Email):</label>
         <input type="text" id="username" name="username" required>
         
         <label for="password">Password:</label>
@@ -30,118 +25,66 @@
             </label>
             <a href="#" class="forgot-password">Forgot Password?</a>
         </div>
+        <div class="toggle-link">
+            <a href="#" onclick="toggleForm()">Don't have an account? Register</a>
+        </div>
+    </form>
+
+    <!-- Registration Form (Initially Hidden) -->
+    <form id="register-form" class="hidden" onsubmit="handleRegister(event)">
+        <h2>Register</h2>
+        
+        <label for="reg-username">Username:</label>
+        <input type="text" id="reg-username" name="reg-username" required>
+
+        <label for="reg-email">Email:</label>
+        <input type="email" id="reg-email" name="reg-email" required>
+
+        <label for="reg-password">Password:</label>
+        <input type="password" id="reg-password" name="reg-password" required>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <input type="submit" value="Register">
+        
+        <div class="toggle-link">
+            <a href="#" onclick="toggleForm()">Already have an account? Login</a>
+        </div>
     </form>
 
     <script>
         function handleLogin(event) {
             event.preventDefault(); // Prevent the default form submission
-            window.location.href = "https://alkifah.edu.sa/"; // Redirect to the specified URL
+
+            const username = document.getElementById('username').value;
+            if (username) {
+                window.location.href = "https://drive.google.com/drive/u/0/folders/1rXPZQB0xNae6HREAo2qhTj0PpnZ50LiF"; // Redirect to the specified URL
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const email = document.getElementById('reg-email').value; // Get the registered email
+            alert('Registration successful!'); // Placeholder for registration success message
+
+            // Switch back to login form and pre-fill email
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById('username').value = email; // Pre-fill email in login form
+        }
+
+        function toggleForm() {
+            document.getElementById('login-form').classList.toggle('hidden');
+            document.getElementById('register-form').classList.toggle('hidden');
         }
     </script>
 
-    <pre>
-
-        mm
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-        mm
-    </pre>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </body>
-        
 </html>
