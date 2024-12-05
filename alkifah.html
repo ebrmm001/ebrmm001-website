@@ -3,161 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Al-Janaubi</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mohammed Al-Janaubi - Home Page</title>
+    <link rel="stylesheet" href="B.css">
 </head>
 
 <body>
-    <!-- Login Form -->
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <h2>Login</h2>
-        <label for="username">Username (or Email):</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <!-- Header with Navigation Menu -->
+    <header>
+        <nav>
+            <ul>
+                
+                <li><a href="A.html">About</a></li>
+                <li><a href="S.html">Services</a></li>
+                <li><a href="C..html">Contact</a></li>
+            </ul>
+            <button onclick="window.location.href='M.html'">Login</button>
+        </nav><object data="" type=""></object>
+    </header>
 
-        <input type="submit" value="Login"> 
-        
-        <div class="options">
-            <label>
-                <input type="checkbox" name="remember"> Remember Me
-            </label>
-            <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot Password?</a>
-        </div>
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Don't have an account? Register</a>
-        </div>
-    </form>
-
-    <!-- Registration Form (Initially Hidden) -->
-    <form id="register-form" class="hidden" onsubmit="handleRegister(event)">
-        <h2>Register</h2>
-        
-        <label for="reg-username">Username:</label>
-        <input type="text" id="reg-username" name="reg-username" required>
-
-        <label for="reg-email">Email:</label>
-        <input type="email" id="reg-email" name="reg-email" required>
-
-        <label for="reg-password">Password:</label>
-        <input type="password" id="reg-password" name="reg-password" required>
-
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
-
-        <input type="submit" value="Register">
-        
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Already have an account? Login</a>
-        </div>
-    </form>
-
-    <!-- Password Reset Form (Initially Hidden) -->
-    <form id="reset-password-form" class="hidden" onsubmit="handleResetPassword(event)">
-        <h2>Reset Password</h2>
-        
-        <label for="reset-email">Email:</label>
-        <input type="email" id="reset-email" name="reset-email" required>
-
-        <label for="new-password">New Password:</label>
-        <input type="password" id="new-password" name="new-password" required>
-
-        <input type="submit" value="Reset Password">
-        
-        <div class="toggle-link">
-            <a href="#" onclick="toggleForm()">Back to Login</a>
-        </div>
-    </form>
-
-    <script>
-        // Simulate registration storage using localStorage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-
-        function handleLogin(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // Check if the username exists and password matches
-            const user = users.find(user => user.email === username && user.password === password);
-
-            if (user) {
-                // Redirect to the specified URL if login is successful
-                window.location.href = "https://drive.google.com/drive/u/0/folders/1rXPZQB0xNae6HREAo2qhTj0PpnZ50LiF"; 
-            } else {
-                alert('Invalid login. Please register if you don\'t have an account.');
-            }
-        }
-
-        function handleRegister(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const username = document.getElementById('reg-username').value;
-            const email = document.getElementById('reg-email').value;
-            const password = document.getElementById('reg-password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            // Check if passwords match
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-
-            // Check if the email is already registered
-            const userExists = users.some(user => user.email === email);
-            if (userExists) {
-                alert('Email is already registered. Please login.');
-                return;
-            }
-
-            // Store user data
-            users.push({ username, email, password });
-            localStorage.setItem('users', JSON.stringify(users));
-
-            alert('Registration successful!');
-
-            // Switch back to login form and pre-fill email
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('register-form').classList.add('hidden');
-            document.getElementById('username').value = email; // Pre-fill email in login form
-        }
-
-        function showForgotPassword() {
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('reset-password-form').classList.remove('hidden');
-        }
-
-        function handleResetPassword(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const resetEmail = document.getElementById('reset-email').value;
-            const newPassword = document.getElementById('new-password').value;
-
-            // Check if the email exists
-            const user = users.find(user => user.email === resetEmail);
-            if (user) {
-                // Update the user's password
-                user.password = newPassword;
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('Password reset successful! You can now login with your new password.');
-                document.getElementById('reset-password-form').classList.add('hidden');
-                document.getElementById('login-form').classList.remove('hidden');
-            } else {
-                alert('Email not found. Please register if you don\'t have an account.');
-            }
-        }
-
-        function toggleForm() {
-            document.getElementById('login-form').classList.toggle('hidden');
-            document.getElementById('register-form').classList.toggle('hidden');
-        }
-    </script>
+    <!-- Main Content Section -->
+    <main>
+        <h1>Welcome</h1>
+        <p>This is a sample project </p>
+    </main>
 
     <style>
-        .hidden {
-            display: none;
+        /* General Styling */
+        body {
+            font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            background-color: #2c2f33;
+        }
+
+        /* Header and Navigation Menu */
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #7289da;
+        }
+
+        nav button {
+            background-color: #7289da;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #5b6eae;
+        }
+
+        /* Main Content */
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 18px;
         }
     </style>
 </body>
