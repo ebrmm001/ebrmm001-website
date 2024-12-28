@@ -4,51 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Al-Janaubi - Home Page</title>
-    <link rel="stylesheet" href="B.css">
-</head>
-
-<body>
-    <!-- Header with Navigation Menu -->
-    <header>
-        <nav>
-            <ul>
-                
-                <li><a href="A.html">About</a></li>
-                <li><a href="S.html">Services</a></li>
-                <li><a href="C..html">Contact</a></li>
-            </ul>
-            <button onclick="window.location.href='M.html'">Login</button>
-        </nav><object data="" type=""></object>
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <h1>Welcome</h1>
-        <p>This is a sample project </p>
-    </main>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
     <style>
         /* General Styling */
         body {
-            font-family: 'Whitney', 'Helvetica Neue', Arial, sans-serif;
-            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            background-color: #2c2f33;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        /* Header and Navigation Menu */
+        /* Header and Navigation */
         header {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
         }
 
         nav ul li {
@@ -56,45 +42,307 @@
         }
 
         nav ul li a {
-            color: #ffffff;
+            color: white;
             text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s;
+            font-size: 16px;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #7289da;
+            color: #ffcc00;
         }
 
         nav button {
-            background-color: #7289da;
-            color: white;
+            background-color: #ffcc00;
+            color: #003366;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
-            cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         nav button:hover {
-            background-color: #5b6eae;
+            background-color: #e6b800;
         }
 
-        /* Main Content */
-        main {
-            padding: 50px;
+        /* Hero Section */
+        .hero {
+        
+            background-size: cover;
+            background-position: center;
+            color: rgb(255, 0, 0);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 0 0 30px;
+        }
+
+        .hero button {
+            background-color: #ffcc00;
+            color: #003366;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #ffffff;
+            padding: 50px 20px;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Video Section */
+        .video {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
             text-align: center;
         }
 
-        main h1 {
-            font-size: 36px;
+        .video h2 {
             margin-bottom: 20px;
         }
 
-        main p {
-            font-size: 18px;
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="A.html">About</a></li>
+                <li><a href="S.html">Services</a></li>
+                <li><a href="C..html">Contact</a></li>
+            </ul>
+            <button onclick="window.location.href='M.html'">Login</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Our School</h1>
+        <p>Explore our programs, services, and opportunities to grow with us.</p>
+        <button onclick="window.location.href='https://www.alkifah.com.sa/en/'">Learn more </button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Our Campuses</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <img src="campus2.png" alt="Feature Icon">
+                <h3>Al Kifah Academy </h3>
+                <p><br>Al Ahsa (2000)</p>
+            </div>
+            <div class="feature">
+                <img src="campus3-1.png" alt="Feature Icon">
+                <h3>KAF Academy</h3>
+                <p>Al Riyadh (2020)</p>
+            </div>
+            <div class="feature">
+                <img src="campus4.png" alt="Feature Icon">
+                <h3>Al Kifah Academy</h3>
+                <p>Al Khobar (2022)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video">
+        <h2>Watch Our Introduction Video</h2>
+        <div class="video-container">
+            <video controls width="800">
+                <source src="kifaheducation-vdo-low (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    
 </body>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>About Us</h3>
+            <p>Our mission is to inspire and educate the leaders of tomorrow. We are committed to providing top-quality education and facilities for our students.</p>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="A.html">About Us</a></li>
+                <li><a href="S.html">Our Services</a></li>
+                <li><a href="C..html">Contact Us</a></li>
+                <li><a href="https://alkifah.edu.sa">Official Website</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Mohammed Al-Janaubi. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p><br>
+        <p>Built by Mohammed Aljanaubi <a href="#"></a></p>
+    </div>
+</footer>
+
+<!-- CSS for Footer -->
+<style>
+    footer {
+        background-color: #003366;
+        color: white;
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin: 20px;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 20px;
+    }
+
+    .footer-section p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin: 10px 0;
+    }
+
+    .footer-section ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .footer-section ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-section.social a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .footer-section.social img {
+        width: 24px;
+        height: 24px;
+        filter: invert(100%);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 20px;
+        border-top: 1px solid #ff000033;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    .footer-bottom a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 </html>
